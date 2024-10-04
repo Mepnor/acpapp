@@ -32,7 +32,7 @@ export default function App({ Component, pageProps, props }) {
     console.log("App load", pageName, router.query);
     setLoading(true);
     // TODO: This section is use to handle page change.
-    setAppName("Say Hi")
+    setAppName("ROBOT STATISTIC VIEWER")
     setLoading(false);
   }, [router, pageName]);
 
