@@ -3,9 +3,9 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 from database import *  # Ensure your database functions are imported
+from pydantic import ValidationError
 
 router = APIRouter()
-
 # Pydantic model for user creation
 class UserCreate(BaseModel):
     first_name: str
@@ -15,6 +15,25 @@ class UserCreate(BaseModel):
     dob: str
     password_hash: str
 
+# Pydantic model for pygame data creation
+class game_statCreate(BaseModel):
+    objectamount: str
+    pygametime: str
+    timetofinish: str
+    target1: str
+    target2: str
+# Pydantic model for pygame data creation
+class robot_statCreate(BaseModel):
+    robot_id: str
+    robottime: str
+    robotpath: str
+class robot_rankCreate(BaseModel):
+    robot_id: str
+    robottime: str
+    robotpath: str
+
+class feedbackCreate(BaseModel):
+    feedback: str
 # Pydantic model for user update
 class UserUpdate(BaseModel):
     first_name: Optional[str]
@@ -126,3 +145,5 @@ async def login_user(user: UserLogin):
         dob=db_user.dob,
         created_at=db_user.created_at
     )
+# Endpoint to submit game stats
+

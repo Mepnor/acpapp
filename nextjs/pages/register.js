@@ -20,8 +20,21 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault(); // Prevent the default form submission
 
+    // Check if passwords match
     if (password !== confirmPassword) {
       setSnackbarMessage("Passwords do not match");
+      setSnackbarSeverity("error");
+      setOpenSnackbar(true);
+      return;
+    }
+
+    // Calculate age based on date of birth
+    const birthYear = new Date(dob).getFullYear();
+    const currentYear = 2024;
+    const age = currentYear - birthYear;
+
+    if (age < 18) {
+      setSnackbarMessage("You must be at least 18 years old to register");
       setSnackbarSeverity("error");
       setOpenSnackbar(true);
       return;
