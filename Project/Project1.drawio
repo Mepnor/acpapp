@@ -1,0 +1,363 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="3025" dy="3255" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-0" value="Applying A* part" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-1" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-2" target="ZOm8-o5Ndyz5oeX2alAg-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-2" value="Start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="190" y="120" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-3" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-4" target="ZOm8-o5Ndyz5oeX2alAg-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-4" value="c = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="190" y="220" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-5" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-6" target="ZOm8-o5Ndyz5oeX2alAg-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-6" value="while c &amp;lt; number of robot" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="165" y="300" width="150" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-7" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-8" target="ZOm8-o5Ndyz5oeX2alAg-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-8" target="ZOm8-o5Ndyz5oeX2alAg-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-8" value="&lt;div&gt;j[c] &amp;lt;= number of point in path[c]&lt;/div&gt;&amp;nbsp;&lt;b&gt;&lt;i&gt;and&lt;/i&gt;&lt;/b&gt;&amp;nbsp;robot number c is not&amp;nbsp;&lt;div&gt;carrying object &lt;b&gt;&lt;i&gt;and&lt;/i&gt;&lt;/b&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;button S has been pressed&amp;nbsp;&lt;/div&gt;&lt;div&gt;already&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;i style=&quot;font-weight: bold;&quot;&gt;and &lt;/i&gt;check[c] = False&lt;/span&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="96.25" y="430" width="287.5" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-9" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-10" target="ZOm8-o5Ndyz5oeX2alAg-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-10" value="modified_original_path = every object that was targeted by other robot (except itself)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="470" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-12" target="ZOm8-o5Ndyz5oeX2alAg-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-12" target="ZOm8-o5Ndyz5oeX2alAg-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-12" value="Object, which robot[c]&amp;nbsp;&lt;div&gt;is targeting,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;is the member of modified_original_path&lt;/span&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="408.75" y="585" width="212.5" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-15" target="ZOm8-o5Ndyz5oeX2alAg-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-15" value="position = the tag of robot which has the same targeted object with robot[c]" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="690" y="597.5" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-17" target="ZOm8-o5Ndyz5oeX2alAg-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-17" target="ZOm8-o5Ndyz5oeX2alAg-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-17" value="Distance between robot[c]&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;and its targeted object is&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;div&gt;more than distance between&amp;nbsp;&lt;/div&gt;&lt;div&gt;robot[position]&amp;nbsp;&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;robot and&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;its targeted object&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="641.88" y="720" width="256.25" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-19" target="ZOm8-o5Ndyz5oeX2alAg-32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="1095" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-19" value="check[c] = True" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="700" y="920" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-21" target="ZOm8-o5Ndyz5oeX2alAg-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-21" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="501.25" y="786.25" width="27.5" height="27.5" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-24" target="ZOm8-o5Ndyz5oeX2alAg-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-24" value="move robot[c] to next point" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="880" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-28" value="j[c] = j[c] + 1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="980" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="1169" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-32" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="225" y="1080" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-37" target="ZOm8-o5Ndyz5oeX2alAg-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-115" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-37" target="ZOm8-o5Ndyz5oeX2alAg-114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-37" value="&lt;div&gt;( j[c] &amp;gt; number of point in path[c]&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;i&gt;or&lt;/i&gt;&lt;/b&gt;&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;check[c] = True )&lt;/span&gt;&lt;/div&gt;&amp;nbsp;&lt;b&gt;&lt;i&gt;and&lt;/i&gt;&lt;/b&gt;&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;button S has been pressed&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;already&lt;/span&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="96.25" y="1169" width="287.5" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-38" target="ZOm8-o5Ndyz5oeX2alAg-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-38" value="check[c] = False" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="470" y="1214" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-40" target="ZOm8-o5Ndyz5oeX2alAg-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-40" value="j[c] = 0" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="470" y="1310" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-42" target="ZOm8-o5Ndyz5oeX2alAg-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-42" value="src[c] = position of robot[c]" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="440" y="1400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-44" target="ZOm8-o5Ndyz5oeX2alAg-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-103" value="True" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ZOm8-o5Ndyz5oeX2alAg-47">
+          <mxGeometry x="-0.1606" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-44" target="ZOm8-o5Ndyz5oeX2alAg-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-102" value="False" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ZOm8-o5Ndyz5oeX2alAg-49">
+          <mxGeometry x="-0.1368" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-44" value="&lt;div&gt;There are no free object left &lt;b&gt;&lt;i&gt;and&lt;/i&gt;&lt;/b&gt;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;robot number c is not&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;carrying object&lt;/span&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="421.88" y="1570" width="236.25" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-106" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-46" target="ZOm8-o5Ndyz5oeX2alAg-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-46" value="dest[c] = home position" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="440" y="1770" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-48" target="ZOm8-o5Ndyz5oeX2alAg-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-48" target="ZOm8-o5Ndyz5oeX2alAg-105">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="838" y="2540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-48" value="&lt;div&gt;There are free object left &lt;b&gt;&lt;i&gt;or&lt;/i&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;robot number c is&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;carrying object&lt;/span&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="720" y="1570" width="236.25" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-50" target="ZOm8-o5Ndyz5oeX2alAg-69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-50" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;robot number c is not&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;carrying object&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1016.25" y="1577.5" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-53" target="ZOm8-o5Ndyz5oeX2alAg-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-53" value="modified_original_path = every object that was targeted by other robot (except itself)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1786.25" y="1607.5" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-55" target="ZOm8-o5Ndyz5oeX2alAg-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-55" value="check and make sure that there are no the same targeted object by each robot" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1786.25" y="1726.5" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-57" target="ZOm8-o5Ndyz5oeX2alAg-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-57" value="update modified_original_path" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1786.25" y="1836.5" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-59" target="ZOm8-o5Ndyz5oeX2alAg-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-59" target="ZOm8-o5Ndyz5oeX2alAg-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-59" value="&lt;div&gt;Object, which robot[c]&amp;nbsp;&lt;div&gt;is targeting,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;is &lt;b&gt;not&lt;/b&gt; the member of modified_original_path&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1766.25" y="1936.5" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-61" target="ZOm8-o5Ndyz5oeX2alAg-77">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2266.25" y="2002" />
+              <mxPoint x="2266.25" y="2374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-61" value="dest[c] = the position of nearest object" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2026.25" y="1961.5" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-63" target="ZOm8-o5Ndyz5oeX2alAg-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-63" target="ZOm8-o5Ndyz5oeX2alAg-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-63" value="&lt;div&gt;Object, which robot[c]&amp;nbsp;&lt;div&gt;is targeting,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;is the member of modified_original_path&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1766.25" y="2096.5" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-65" target="ZOm8-o5Ndyz5oeX2alAg-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-65" value="dest[c] = home position" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2026.25" y="2121.5" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-67" target="ZOm8-o5Ndyz5oeX2alAg-77">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2126.25" y="2374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-67" value="tag of object which robot[c]&amp;nbsp;&lt;div&gt;is targeting = -1&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2026.25" y="2236.5" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-69" target="ZOm8-o5Ndyz5oeX2alAg-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-69" value="all_path[c] = algoritm.shortest_way&lt;div&gt;(multi_mobile_robot[c], all_object, grid)&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1276.25" y="1596.25" width="180" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-71" target="ZOm8-o5Ndyz5oeX2alAg-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-71" value="&lt;div&gt;the number of member&amp;nbsp;&lt;/div&gt;&lt;div&gt;of all_path[c] &amp;gt; 0&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1510.25" y="1577.5" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-74" target="ZOm8-o5Ndyz5oeX2alAg-105">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1871" y="2540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-74" value="the number of task of robot[c] add by 1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1797.5" y="2440" width="147.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-77" target="ZOm8-o5Ndyz5oeX2alAg-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-77" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1857" y="2360" width="28.5" height="28.5" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-82" target="ZOm8-o5Ndyz5oeX2alAg-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-95" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-82" target="ZOm8-o5Ndyz5oeX2alAg-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-82" value="&lt;div&gt;the number of member&amp;nbsp;&lt;/div&gt;&lt;div&gt;of all_path[c] &amp;lt;= 0&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1510.25" y="1820" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-71" target="ZOm8-o5Ndyz5oeX2alAg-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-85" target="ZOm8-o5Ndyz5oeX2alAg-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-85" value="dest[c] = home position" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1256.25" y="1845" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-88" target="ZOm8-o5Ndyz5oeX2alAg-90">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1356.25" y="2104" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-88" value="tag of object which robot[c]&amp;nbsp;&lt;div&gt;is targeting = -1&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1256.25" y="1961.5" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-90" target="ZOm8-o5Ndyz5oeX2alAg-105">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1615" y="2540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-90" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1597.75" y="2086.5" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-98" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-93" target="ZOm8-o5Ndyz5oeX2alAg-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-110" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-93" target="ZOm8-o5Ndyz5oeX2alAg-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-93" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;robot number c is&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;carrying object&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1016.25" y="2170" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-50" target="ZOm8-o5Ndyz5oeX2alAg-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-100" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-97" target="ZOm8-o5Ndyz5oeX2alAg-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-97" value="path_to_target[c] = algoritm.shortest_way&lt;div&gt;(multi_mobile_robot[c], all_target, grid)&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1286.25" y="2188.75" width="180" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-99" target="ZOm8-o5Ndyz5oeX2alAg-109">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1376" y="2438" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-99" value="dest[c] = the position of nearest target" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1276.25" y="2320" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-38" target="ZOm8-o5Ndyz5oeX2alAg-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-105" target="ZOm8-o5Ndyz5oeX2alAg-114">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="2680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-105" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=1;arcSize=14;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520.01" y="2520" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-109" target="ZOm8-o5Ndyz5oeX2alAg-105">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1121" y="2540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-109" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1103.75" y="2420" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-120" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZOm8-o5Ndyz5oeX2alAg-114" target="ZOm8-o5Ndyz5oeX2alAg-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-114" value="" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="220" y="2660" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZOm8-o5Ndyz5oeX2alAg-119" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="190" y="2780" width="100" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

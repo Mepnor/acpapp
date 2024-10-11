@@ -2,7 +2,6 @@ import math
 import heapq
 import create_map
 import MAIN_VALUE
-import time
 
 # Define the Cell class
 class Cell:
@@ -68,7 +67,7 @@ def a_star_search(grid, src, dest, ROW, COL):
     # Check if we are already at the destination
     if is_destination(src[0], src[1], dest):
         print("We are already at the destination")
-        return 
+        return
 
     # Initialize the closed list (visited cells)
     closed_list = [[False for _ in range(COL)] for _ in range(ROW)]
@@ -173,7 +172,7 @@ def shortest_way(mobile_robot, all_object, grid) :
         if object.pos != [0,0] :
             # Define the source and destination
             src = [mobile_robot.x, mobile_robot.y]
-            dest = object.pos
+            dest = [object.x // MAIN_VALUE.tile_size(), object.y // MAIN_VALUE.tile_size()]
 
             route = a_star_search(grid, src, dest, ROW, COL)
             if type(route) == list :

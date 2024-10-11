@@ -47,7 +47,7 @@ def connect_paths(grid, visited):
                 grid[x1][j] = 0
         else:
             for j in range(min(x1, x2), max(x1, x2) + 1):
-                grid[j][y1] = 0
+                grid[j][y2] = 0
             for j in range(min(y1, y2), max(y1, y2) + 1):
                 grid[x2][j] = 0
 
@@ -112,7 +112,7 @@ def main() :
     width = int(MAIN_VALUE.SCREEN_SETTING_size()[0]/tile_size)
     height = int(MAIN_VALUE.SCREEN_SETTING_size()[1]/tile_size)
     city_map = create_connected_path(height, width)
-    add_random_buildings(city_map, building_density=0.06)  # Adjust density as needed
+    add_random_buildings(city_map, building_density=0.05)  # Adjust density as needed
     remove_isolated_paths(city_map)  # Ensure no isolated paths remain
 
     def save_map(grid):
