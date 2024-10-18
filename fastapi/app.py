@@ -1,21 +1,23 @@
-from typing import Union, List
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+# app.py
+from typing import Union, List, Optional
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, Depends
 from pydantic import BaseModel
 from database import *
 from routes.users import router
 from starlette.websockets import WebSocketState
 from fastapi.middleware.cors import CORSMiddleware
-from typing import Optional
+from fastapi import Depends
+from fastapi.security import OAuth2PasswordBearer
+
 app = FastAPI()
-
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/users/token")
 # Include the router for user-related routes with "/api" prefix
 app.include_router(router, prefix="/api")
 
 # Middleware to allow cross-origin requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["http://localhost:3000"],  # Adjust if your frontend runs on a different port
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,6 +56,7 @@ async def shutdown():
 class GameStatModel(BaseModel):
     quantitys: int
     time_spent: int
+    time_when_end: int
     target1: Optional[int] = None  # Default to None if not provided
     target2: Optional[int] = None
     Robot1C: int
@@ -77,39 +80,68 @@ class GameStatModel(BaseModel):
     Robot10C: int
     Robot10P: int
 
-# Submit game stats API route
-@app.post("/submit_game_stats")
-async def submit_game_stats(variable: GameStatModel):
+class TopPerformanceModel(BaseModel):
+    robot_id: int
+    ranking: int
+    rtype: str
+    robottime: int
+    robotpath: int
+
+class GameStatsPayload(BaseModel):
+    gameStats: GameStatModel  # Existing game stats structure
+    topPerformance: List[TopPerformanceModel] # List of top 6 performances
+
+# Submit game stats API route with "/api" prefix
+@app.post("/api/submit_game_stats")
+async def submit_game_stats(payload: GameStatsPayload):
     try:
-        # Get the next experiment number (exp_number should be the same across game_stat, robot_stat, robot_rank)
-        exp_number = await get_next_experiment_number()
+        # Start a transaction to ensure all operations happen atomically
+        async with database.transaction():
+            # Step 1: Insert into the game_stat table and get the exp_number
+            game_stat = await insert_game_stat(
+                objectamount=payload.gameStats.quantitys,
+                pygametime=payload.gameStats.time_spent,
+                timetofinish=payload.gameStats.time_when_end,
+                target1=payload.gameStats.target1,
+                target2=payload.gameStats.target2,
+            )
+            exp_number = game_stat["exp_number"]  # Retrieve the correct exp_number
 
-        # Insert game stats into the game_stat table
-        await insert_game_stat(
-            objectamount=variable.quantitys,
-            pygametime=variable.time_spent,
-            target1=variable.target1,
-            target2=variable.target2
-        )
+            # Step 2: Insert robot stats for all 10 robots with the correct exp_number
+            robot_stats = [
+                {
+                    "robot_id": i + 1,
+                    "robottime": getattr(payload.gameStats, f"Robot{i + 1}C"),
+                    "robotpath": getattr(payload.gameStats, f"Robot{i + 1}P"),
+                }
+                for i in range(10)
+            ]
+            await insert_robot_stat(exp_number=exp_number, robots=robot_stats)
 
-        # Insert robot stats for 10 robots into the robot_stat table (using the same exp_number for all)
-        robot_stats = []
-        for i in range(1, 11):
-            robot_stats.append({
-                "robot_id": i,
-                "robottime": getattr(variable, f"Robot{i}C"),
-                "robotpath": getattr(variable, f"Robot{i}P")
-            })
-        # Insert robot stats for all 10 robots using the same exp_number
-        await insert_robot_stat(exp_number=exp_number, robots=robot_stats)
+            # Step 3: Get the top 3 robots for "Box Collected"
+            top_3_boxes = sorted(robot_stats, key=lambda x: x["robottime"], reverse=True)[:3]
+            for rank, robot in enumerate(top_3_boxes, start=1):
+                robot["ranking"] = rank
+                robot["rtype"] = "Box Collected"
 
-        # Insert top 3 robots into the robot_rank table (based on collected boxes)
-        top_3_robots = sorted(robot_stats, key=lambda x: x['robottime'], reverse=True)[:3]
-        await insert_robot_rank(exp_number=exp_number, robots=top_3_robots)
+            # Step 4: Get the top 3 robots for "Longest Distance"
+            top_3_distances = sorted(robot_stats, key=lambda x: x["robotpath"], reverse=True)
 
-        return {"message": "Game stats submitted successfully"}
+            # Filter out robots that are already in top_3_boxes to avoid duplicates
+            top_3_distances = [robot for robot in top_3_distances if robot["robot_id"] not in [r["robot_id"] for r in top_3_boxes]][:3]
+
+            for rank, robot in enumerate(top_3_distances, start=1):
+                robot["ranking"] = rank
+                robot["rtype"] = "Longest Distance"
+
+            # Step 5: Create a combined list to insert in the desired order
+            top_performance = top_3_boxes + top_3_distances
+
+            # Step 6: Insert the top performances into the robot_rank table
+            await insert_robot_rank(exp_number=exp_number, robots=top_performance)
+
+        return {"message": "Game stats and top performances submitted successfully"}
 
     except Exception as e:
-        print(f"Error: {e}")  # Log the error to console for debugging
+        print(f"Error: {e}")  # Print the error for debugging
         raise HTTPException(status_code=500, detail="Internal Server Error")
-

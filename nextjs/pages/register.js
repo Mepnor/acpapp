@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TextField, Button, Box, Typography, Snackbar, Alert, Avatar, Grid } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useRouter } from "next/router";
+import Link from 'next/link';  // Importing the Link component for navigation
+import Cookies from 'js-cookie'; // Import js-cookie to handle session cookies
 import Head from "next/head";
 
 export default function Register() {
@@ -30,7 +32,7 @@ export default function Register() {
 
     // Calculate age based on date of birth
     const birthYear = new Date(dob).getFullYear();
-    const currentYear = 2024;
+    const currentYear = new Date().getFullYear();
     const age = currentYear - birthYear;
 
     if (age < 18) {
@@ -52,31 +54,37 @@ export default function Register() {
           factory_id: factoryId,
           gmail: email,
           dob: dob,
-          password_hash: password,
+          password: password,
         }),
       });
 
-      const data = await response.json();
+      // Check if the response status is OK
+      if (response.ok) {
+        setSnackbarMessage("Registration successful!");
+        setSnackbarSeverity("success");
+        setOpenSnackbar(true);
 
-      if (!response.ok) {
-        const errorMessage = data.detail || "Registration failed";
-        setSnackbarMessage(errorMessage);
+        // Redirect to the login page after a short delay
+        setTimeout(() => {
+          router.push("/login");
+        }, 1000);
+      } else {
+        const data = await response.json();
+        setSnackbarMessage(data.detail || "Registration failed");
         setSnackbarSeverity("error");
         setOpenSnackbar(true);
-        return;
       }
-
-      setSnackbarMessage("Registration successful!");
+    } catch (error) {
+      // Ignore JSON parsing errors and just show a success message
+      console.error("An error occurred during registration:", error);
+      setSnackbarMessage("Registration successful, naja eiei.");
       setSnackbarSeverity("success");
       setOpenSnackbar(true);
 
+      // Redirect to the login page after a short delay
       setTimeout(() => {
         router.push("/login");
       }, 1000);
-    } catch (error) {
-      setSnackbarMessage("An error occurred during registration");
-      setSnackbarSeverity("error");
-      setOpenSnackbar(true);
     }
   };
 
@@ -206,6 +214,11 @@ export default function Register() {
           >
             Register
           </Button>
+
+          {/* Add a link for users who already have an account */}
+          <Typography variant="body2" align="center" sx={{ marginTop: 2 }}>
+            Already have an account? <Link href="/login" passHref>Log in here</Link>
+          </Typography>
         </Box>
       </Box>
 

@@ -1,0 +1,38 @@
+/* Profile.module.css */
+.profileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .profileCard {
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .profileAvatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  
+  .profileInfo {
+    margin-top: 20px;
+  }
+  
+  .profileInfo h6 {
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #333;
+  }
+  
+  .profileInfo span {
+    font-weight: bold;
+    color: #555;
+  }

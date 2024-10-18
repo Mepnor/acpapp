@@ -11,7 +11,7 @@ const IndexPage = () => {
       <AppBar position="static" style={styles.appBar}>
         <Toolbar style={styles.toolbar}>
           <Typography variant="h4" style={styles.headerTitle}>
-            Our Awesome Platform
+            The Robot Simulation monitoring system
           </Typography>
         </Toolbar>
       </AppBar>
@@ -23,7 +23,7 @@ const IndexPage = () => {
             Welcome!
           </Typography>
           <Typography variant="body1" align="center" style={styles.subText}>
-            Join us today and experience the best platform
+            Click login/Register here to use our system!
           </Typography>
           <Box style={styles.buttonContainer}>
             <Link href="/login" passHref>

@@ -4,3 +4,9 @@ databases[asyncpg]
 pydantic
 bcrypt
 starlette>=0.13.0
+PyJWT
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+psycopg2-binary
+sqlalchemy

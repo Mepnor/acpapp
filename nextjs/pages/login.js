@@ -3,63 +3,101 @@ import { TextField, Button, Box, Typography, Snackbar, Alert, Avatar } from "@mu
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Cookies from "js-cookie";  // Using js-cookie to handle authentication token
+import Link from 'next/link';  // Import Link from next.js for navigation
 
 export default function Login() {
-  const [gmail, setEmail] = useState("");
+  const [factoryId, setFactoryId] = useState('');  // Updated variable name
   const [password, setPassword] = useState("");
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('error');
-  const [factoryid, setFactoryid] = useState('');
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  const [captchaQuestion, setCaptchaQuestion] = useState('');
+  const [captchaSolution, setCaptchaSolution] = useState(null);
   const router = useRouter();
 
+  // Generate a simple math-based CAPTCHA
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 100) + 1;
+    const num2 = Math.floor(Math.random() * 100) + 1;
+    setCaptchaQuestion(`What is ${num1} plus ${num2}?`);
+    setCaptchaSolution(num1 + num2);
+  };
+
+  // When the page loads, generate a CAPTCHA question
+  React.useEffect(() => {
+    generateCaptcha();
+  }, []);
+
   const handleLogin = async () => {
-    if (!factoryid || !password) {
-      setSnackbarMessage('Please enter both FactoryID and password');
-      setSnackbarSeverity('warning');
+    // Validate client-side input first
+    if (!factoryId) {
+      setSnackbarMessage('Please input factory ID');
+      setSnackbarSeverity('error');
+      setOpenSnackbar(true);
+      return;
+    }
+  
+    if (!password) {
+      setSnackbarMessage('Please input a password');
+      setSnackbarSeverity('error');
+      setOpenSnackbar(true);
+      return;
+    }
+  
+    // Check CAPTCHA answer on the frontend only
+    if (captchaAnswer !== captchaSolution.toString()) {
+      setSnackbarMessage('Incorrect CAPTCHA answer');
+      setSnackbarSeverity('error');
       setOpenSnackbar(true);
       return;
     }
   
     try {
-      const response = await fetch('/api/users/login', {
+      // If CAPTCHA is correct, proceed with the login request
+      const response = await fetch('/api/users/LoginWithToken', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          factory_id: factoryid,
-          password_hash: password,
+        body: new URLSearchParams({
+          'username': factoryId,
+          'password': password,
         }),
       });
   
       const data = await response.json();
+      console.log('Login Response Data:', data); // Log for debugging
   
       if (!response.ok) {
-        const errorMessage = data.detail 
-          ? typeof data.detail === 'string' 
-            ? data.detail 
-            : data.detail.msg || 'Login failed' 
-          : 'Login failed';
-        setSnackbarMessage(errorMessage);
+        setSnackbarMessage(data.detail || 'Login failed');
         setSnackbarSeverity('error');
         setOpenSnackbar(true);
         return;
       }
   
+      // Success Case: Save token and redirect
+      Cookies.set('session_token', data.access_token, { expires: 1, path: '/' });
       setSnackbarMessage('Login successful!');
       setSnackbarSeverity('success');
       setOpenSnackbar(true);
   
       setTimeout(() => {
-        router.push("/main");
+        router.push("/main");  // Redirect to the main page after login
       }, 1000);
+  
     } catch (error) {
+      console.error('Login error:', error);  // Log the actual error for debugging
       setSnackbarMessage('An error occurred during login');
       setSnackbarSeverity('error');
       setOpenSnackbar(true);
     }
   };
+  
+  
+  
+  
 
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
@@ -99,12 +137,12 @@ export default function Login() {
           </Typography>
 
           <TextField
-            label="factory_ID"
+            label="Factory ID"
             variant="outlined"
             fullWidth
             margin="normal"
-            value={factoryid}
-            onChange={(e) => setFactoryid(e.target.value)}
+            value={factoryId}
+            onChange={(e) => setFactoryId(e.target.value)}
             required
           />
 
@@ -116,6 +154,20 @@ export default function Login() {
             margin="normal"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {/* CAPTCHA Challenge */}
+          <Typography variant="body1" align="center" gutterBottom>
+            {captchaQuestion}
+          </Typography>
+          <TextField
+            label="Answer"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={captchaAnswer}
+            onChange={(e) => setCaptchaAnswer(e.target.value)}
             required
           />
 
@@ -132,14 +184,9 @@ export default function Login() {
             Login
           </Button>
 
-          <Typography variant="body2" color="text.secondary" align="center" sx={{ marginTop: 2 }}>
-            Don't have an account?{" "}
-            <a href="/register" style={{
-              color: "#FFC107",
-              textDecoration: "none",
-              fontWeight: 'bold',
-              fontSize: '1.2rem',
-            }}>Sign Up</a>
+          {/* Add a link for registration if the user doesn't have an account */}
+          <Typography variant="body2" align="center" sx={{ marginTop: 2 }}>
+            Don't have an account? <Link href="/register" passHref>Register here</Link>
           </Typography>
         </Box>
       </Box>

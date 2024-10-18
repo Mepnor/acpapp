@@ -1,9 +1,15 @@
+// Dashboard.js
 import { useEffect, useState, useRef } from 'react';
+import { Button } from '@mui/material'; // Import Button from MUI
 import styles from './Dashboard.module.css'; // Import the CSS module
+import Cookies from 'js-cookie'; // Import js-cookie to handle session cookies
+import { useRouter } from 'next/router';
 
 export default function Dashboard() {
+  const router = useRouter();
   const [variable, setVariable] = useState({});
   const [imageSrc, setImageSrc] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Add state to check authentication
   const boxCanvasRef = useRef(null); // Reference for the "Boxes Collected" pie chart
   const distanceCanvasRef = useRef(null); // Reference for the "Distance Walked" pie chart
   const topBoxCanvasRef = useRef(null); // Reference for the "Top 3 Boxes Collected" pie chart
@@ -12,7 +18,19 @@ export default function Dashboard() {
   // Define colors for each robot globally so it can be used across the component
   const colors = ['#FFBF00', '#FF4500', '#32CD32', '#1E90FF', '#FFD700', '#4B0082', '#00FF7F', '#8B0000', '#FF1493', '#8A2BE2'];
 
+  // Check authentication status on component mount
   useEffect(() => {
+    const token = Cookies.get('session_token'); // Get the session token from cookies
+    if (!token) {
+      router.push('/login'); // Redirect to login if no token found
+    } else {
+      setIsAuthenticated(true); // Set the user as authenticated if token exists
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (!isAuthenticated) return; // Only run WebSocket if authenticated
+
     const socket = new WebSocket('ws://localhost:8000/ws/game_stats');
 
     socket.onmessage = function (event) {
@@ -33,7 +51,7 @@ export default function Dashboard() {
     };
 
     return () => socket.close();
-  }, []);
+  }, [isAuthenticated]);
 
   // Prepare data for the charts
   const robotNumbers = [...Array(10)].map((_, index) => index + 1);
@@ -79,6 +97,8 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    if (!isAuthenticated) return; // Only draw charts if authenticated
+
     // Draw the pie chart for Boxes Collected
     const boxCanvas = boxCanvasRef.current;
     const boxCtx = boxCanvas.getContext('2d');
@@ -87,9 +107,11 @@ export default function Dashboard() {
       value: boxesCollected[index],
       color: colors[index]
     })));
-  }, [boxesCollected]);
+  }, [boxesCollected, isAuthenticated]);
 
   useEffect(() => {
+    if (!isAuthenticated) return; // Only draw charts if authenticated
+
     // Draw the pie chart for Distance Walked
     const distanceCanvas = distanceCanvasRef.current;
     const distanceCtx = distanceCanvas.getContext('2d');
@@ -98,52 +120,146 @@ export default function Dashboard() {
       value: pathsWalked[index],
       color: colors[index]
     })));
-  }, [pathsWalked]);
+  }, [pathsWalked, isAuthenticated]);
 
   useEffect(() => {
+    if (!isAuthenticated) return; // Only draw charts if authenticated
+
     // Draw the pie chart for Top 3 Boxes Collected
     const topBoxCanvas = topBoxCanvasRef.current;
     const topBoxCtx = topBoxCanvas.getContext('2d');
     topBoxCtx.clearRect(0, 0, topBoxCanvas.width, topBoxCanvas.height);
     drawPieChart(topBoxCtx, top3BoxesCollected);
-  }, [top3BoxesCollected]);
+  }, [top3BoxesCollected, isAuthenticated]);
 
   useEffect(() => {
+    if (!isAuthenticated) return; // Only draw charts if authenticated
+
     // Draw the pie chart for Top 3 Longest Distance Walked
     const topDistanceCanvas = topDistanceCanvasRef.current;
     const topDistanceCtx = topDistanceCanvas.getContext('2d');
     topDistanceCtx.clearRect(0, 0, topDistanceCanvas.width, topDistanceCanvas.height);
     drawPieChart(topDistanceCtx, top3DistancesWalked);
-  }, [top3DistancesWalked]);
+  }, [top3DistancesWalked, isAuthenticated]);
 
   // Function to submit data to the backend
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:8000/submit_game_stats', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const token = Cookies.get('session_token'); // Get the session token from cookies
+      if (!token) {
+        alert('You need to be logged in to submit data');
+        router.push('/login'); // Redirect to login if no token found
+        return;
+      }
+
+      // Prepare the top 3 robots for "Box Collected"
+      const top3BoxesCollectedData = boxesCollected
+        .map((collected, index) => ({
+          robot_id: index + 1,
+          ranking: index + 1,  // Set ranking here
+          rtype: "Box Collected",  // Set type of ranking (Box Collected)
+          robottime: collected,
+          robotpath: pathsWalked[index],
+        }))
+        .sort((a, b) => b.robottime - a.robottime)
+        .slice(0, 3);
+
+      // Prepare the top 3 robots for "Longest Distance"
+      const top3DistancesWalkedData = pathsWalked
+        .map((distance, index) => ({
+          robot_id: index + 1,
+          ranking: index + 1,  // Set ranking here
+          rtype: "Longest Distance",  // Set type of ranking (Longest Distance)
+          robottime: boxesCollected[index],
+          robotpath: distance,
+        }))
+        .sort((a, b) => b.robotpath - a.robotpath)
+        .slice(0, 3);
+
+      const payload = {
+        gameStats: {
+          quantitys: variable.quantitys,
+          time_spent: variable.time_spent,
+          time_when_end: variable.time_when_end,
+          target1: variable.target1,
+          target2: variable.target2,
+          Robot1C: variable.Robot1C || 0,
+          Robot1P: variable.Robot1P || 0,
+          Robot2C: variable.Robot2C || 0,
+          Robot2P: variable.Robot2P || 0,
+          Robot3C: variable.Robot3C || 0,
+          Robot3P: variable.Robot3P || 0,
+          Robot4C: variable.Robot4C || 0,
+          Robot4P: variable.Robot4P || 0,
+          Robot5C: variable.Robot5C || 0,
+          Robot5P: variable.Robot5P || 0,
+          Robot6C: variable.Robot6C || 0,
+          Robot6P: variable.Robot6P || 0,
+          Robot7C: variable.Robot7C || 0,
+          Robot7P: variable.Robot7P || 0,
+          Robot8C: variable.Robot8C || 0,
+          Robot8P: variable.Robot8P || 0,
+          Robot9C: variable.Robot9C || 0,
+          Robot9P: variable.Robot9P || 0,
+          Robot10C: variable.Robot10C || 0,
+          Robot10P: variable.Robot10P || 0,
         },
-        body: JSON.stringify(variable), // Send the `variable` state to the API
+        topPerformance: [...top3BoxesCollectedData, ...top3DistancesWalkedData],  // Send 6 top robots
+      };
+
+      // Send POST request with token in headers
+      const response = await fetch("http://localhost:8000/api/submit_game_stats", {
+        method: "POST",  // POST method
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`, // Add token for authentication
+        },
+        body: JSON.stringify(payload),
       });
-      
+
       if (response.ok) {
         const result = await response.json();
-        console.log('Submission success:', result);
+        console.log("Submission success:", result);
+        alert("Data submitted successfully!");
       } else {
-        console.error('Error in submission:', response.status);
+        const errorData = await response.json();
+        console.error("Error in submission:", JSON.stringify(errorData, null, 2));
+        alert(`Error in submission: ${JSON.stringify(errorData, null, 2)}`);
       }
     } catch (error) {
-      console.error('Error during fetch:', error);
+      console.error("Error during fetch:", error);
+      alert("An error occurred during data submission.");
     }
   };
-  
-  
+
+  // Add a return to main button
+  const handleReturnToMain = () => {
+    router.push('/main');  // Navigate to main.js page
+  };
+
+  if (!isAuthenticated) {
+    return null; // Don't render dashboard if not authenticated
+  }
 
   return (
     <div className={styles.dashboardContainer}>
       <header className={styles.dashboardHeader}>
-        <h1>Game Dashboard</h1>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleReturnToMain}
+            sx={{ 
+              backgroundColor: 'inherit', 
+              '&:hover': { backgroundColor: '#444' },
+              color: '#fff',
+              marginRight: 'auto', // Push to the left side
+            }}
+          >
+            Return to Main Menu
+          </Button>
+          <h1 style={{ textAlign: 'center', flexGrow: 1 }}>Game Dashboard</h1>
+        </div>
       </header>
 
       {/* Game Display */}
